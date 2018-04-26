@@ -21,6 +21,10 @@
 		34A4985A2091B30A0070A2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A498582091B30A0070A2F9 /* LaunchScreen.storyboard */; };
 		34A498662091B3E10070A2F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A498652091B3E10070A2F9 /* MainViewController.swift */; };
 		34A498682091B4520070A2F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A498672091B4520070A2F9 /* Assets.xcassets */; };
+		503DF64B2091B92600160F4D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DF6482091B92500160F4D /* CollectionViewCell.xib */; };
+		503DF64C2091B92600160F4D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF6492091B92600160F4D /* CollectionViewCell.swift */; };
+		503DF64D2091B92600160F4D /* ChallengeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */; };
+		503DF64F2091D88700160F4D /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF64E2091D88700160F4D /* QRScannerController.swift */; };
 		FFFF762D8B53DBA8B91521DC /* Pods_Challenged.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47CB71D746CBFB43FFC268B /* Pods_Challenged.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,10 @@
 		34A4985B2091B30A0070A2F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A498652091B3E10070A2F9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		34A498672091B4520070A2F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		503DF6482091B92500160F4D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		503DF6492091B92600160F4D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeInfoViewController.swift; sourceTree = "<group>"; };
+		503DF64E2091D88700160F4D /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		7AC1D72F28270721795D0BAA /* Pods-Challenged.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenged.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenged/Pods-Challenged.debug.xcconfig"; sourceTree = "<group>"; };
 		911554F37AD134A8AA6360E7 /* Pods-Challenged.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenged.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenged/Pods-Challenged.release.xcconfig"; sourceTree = "<group>"; };
 		A47CB71D746CBFB43FFC268B /* Pods_Challenged.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenged.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +102,10 @@
 				344D926E2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift */,
 				34A498652091B3E10070A2F9 /* MainViewController.swift */,
 				34A498532091B3080070A2F9 /* Main.storyboard */,
+				503DF64E2091D88700160F4D /* QRScannerController.swift */,
+				503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */,
+				503DF6492091B92600160F4D /* CollectionViewCell.swift */,
+				503DF6482091B92500160F4D /* CollectionViewCell.xib */,
 				34A498582091B30A0070A2F9 /* LaunchScreen.storyboard */,
 				34A4985B2091B30A0070A2F9 /* Info.plist */,
 				344D926B2091B8CB00553719 /* Sounds */,
@@ -212,6 +224,7 @@
 				34A498682091B4520070A2F9 /* Assets.xcassets in Resources */,
 				34A498552091B3080070A2F9 /* Main.storyboard in Resources */,
 				344D926D2091B8CB00553719 /* explosion.mp3 in Resources */,
+				503DF64B2091B92600160F4D /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +285,9 @@
 				344D92712091BE2100553719 /* Utilities.swift in Sources */,
 				344D926F2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift in Sources */,
 				344D92732091D2BE00553719 /* Sun.swift in Sources */,
+				503DF64C2091B92600160F4D /* CollectionViewCell.swift in Sources */,
+				503DF64D2091B92600160F4D /* ChallengeInfoViewController.swift in Sources */,
+				503DF64F2091D88700160F4D /* QRScannerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
