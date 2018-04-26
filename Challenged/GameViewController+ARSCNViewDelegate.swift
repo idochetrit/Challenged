@@ -30,25 +30,42 @@ extension GameViewController: ARSCNViewDelegate {
     planeNode.update(planeAnchor)
   }
   
-  
-  func addAlienNode(planeNode: Plane, index: Int) {
-    let alienNode = Robot(id: index)
+  // game frames loop
+  func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+    // update game time
+    self.gameTime = Date().timeIntervalSince(gameInstance.startedAt)
     
-    alienNode.setupPosition(node: planeNode)
-    print("Alien pos. ", alienNode.position)
-    print("Plane Node pos. ", planeNode.position)
+    print("Game Time: ", time)
+    print("Game Time (elapsed): ", self.gameTime)
     
-    sceneView.scene.rootNode.addChildNode(alienNode)
-    aliens.append(alienNode)
+    updateHUDLabels()
+    if gameInstance.isEnded() {
+      gameInstance.pushFinishScreen(source: self)
+    }
   }
   
-  @objc func addAlienTimed() {
-    // choose plane node
-    if (self.aliens.count < 10 && self.planeNodes.count > 0) {
+  
+  func addRobotNode(planeNode: Plane, index: Int) {
+    let robotNode = Robot(id: index)
+    
+    robotNode.setupPosition(node: planeNode)
+    print("Alien pos. ", robotNode.position)
+    print("Plane Node pos. ", planeNode.position)
+    
+    sceneView.scene.rootNode.addChildNode(robotNode)
+    aliens.append(robotNode)
+  }
+  
+  @objc func addRobotInterval() {
+    
+    if (self.aliens.count < gameInstance.numberOfTargets &&
+        self.planeNodes.count > 0) {
+      
+      // choose random plane node
       guard let node = self.planeNodes.randomItem()
         else {return}
       DispatchQueue.main.async {
-        self.addAlienNode(planeNode: node, index: self.aliens.count)
+        self.addRobotNode(planeNode: node, index: self.aliens.count)
       }
     }
   }

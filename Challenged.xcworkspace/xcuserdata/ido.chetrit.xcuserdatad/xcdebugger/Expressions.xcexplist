@@ -10,5 +10,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "GameViewController.renderer(_:updateAtTime:):GameViewController+ARSCNViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Date().timeIntervalSince(gameInstance.startedAt)">
+            </PersistentString>
+            <PersistentString
+               value = "gameInstance.startedAt.timeIntervalSince1970 - time">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

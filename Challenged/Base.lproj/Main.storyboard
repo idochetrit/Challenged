@@ -22,26 +22,53 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Challenged" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                    <view key="view" contentMode="scaleToFill" id="5WI-Lu-V6b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpb-fU-uWI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="tZ0-SG-CYS"/>
+                                    <outletCollection property="gestureRecognizers" destination="9ac-Bg-WXU" appends="YES" id="xav-AC-VMO"/>
+                                </connections>
+                            </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo8-K0-b9n">
+                                <rect key="frame" x="16" y="20" width="343" height="33"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91948672279792742" green="0.91948672279792742" blue="0.91948672279792742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="target" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXV-3I-qKW">
+                                <rect key="frame" x="160" y="305" width="55" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="ypk-96-RN8"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="m5Y-ND-MpM" appends="YES" id="egx-sh-4ZB"/>
+                            <outletCollection property="gestureRecognizers" destination="9ac-Bg-WXU" appends="YES" id="NAE-bV-yUh"/>
                         </connections>
-                    </arscnView>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="containerView" destination="5WI-Lu-V6b" id="WmW-oB-Z5R"/>
+                        <outlet property="sceneView" destination="dpb-fU-uWI" id="CuK-so-9Gx"/>
+                        <outlet property="timerLabel" destination="eo8-K0-b9n" id="QOx-wh-wVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="m5Y-ND-MpM">
+                <tapGestureRecognizer id="9ac-Bg-WXU">
                     <connections>
-                        <action selector="didTapScreen:" destination="BV1-FR-VrT" id="Ejh-Er-W7j"/>
+                        <action selector="didTapScreen:" destination="BV1-FR-VrT" id="X3p-ed-H9F"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="919" y="878"/>
+            <point key="canvasLocation" x="917.60000000000002" y="877.51124437781118"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="oWl-6q-Pz0">
@@ -402,5 +429,6 @@
         <image name="robot" width="400" height="400"/>
         <image name="starempty" width="261" height="245"/>
         <image name="yellowstar" width="252" height="248"/>
+        <image name="target" width="288" height="288"/>
     </resources>
 </document>
