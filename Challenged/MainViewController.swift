@@ -13,7 +13,7 @@ import Hero
 class MainViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelegate {
   
   var infos: [ChallengeInfo] = []
-  
+ 
   @IBOutlet weak var FSPagerChallenges: FSPagerView!{
     didSet{
       self.FSPagerChallenges.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
@@ -21,15 +21,10 @@ class MainViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
       self.FSPagerChallenges.transformer?.minimumAlpha = 0.2
       self.FSPagerChallenges.itemSize = CGSize(width: 280, height: 280)
       self.FSPagerChallenges.backgroundColor = UIColor.clear
-      
       FSPagerChallenges.isInfinite = true
     }
   }
   
-  func pagerView(_ pagerView: FSPagerView, shouldSelectItemAt index: Int) -> Bool{
-    
-    return true
-  }
   
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
     
@@ -86,7 +81,7 @@ class MainViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     let info = infos[index]
     cell.title.text = info.challengeName
     cell.bigImage.image = info.companyImage
-    cell.descrip.text = info.prizeDescription
+    cell.descrip.text = info.shortDescription
     cell.prizeImage.image = info.prizeImage
     
     return cell

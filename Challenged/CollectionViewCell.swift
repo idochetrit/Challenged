@@ -30,6 +30,7 @@ class CollectionViewCell:  FSPagerViewCell {
     title.layer.shadowOpacity = 1.0
     title.layer.shadowOffset = CGSize(width: 2, height: 2)
     title.layer.masksToBounds = false
+    title.numberOfLines = 2
     
     descrip.lineBreakMode = .byWordWrapping
     descrip.numberOfLines = 4

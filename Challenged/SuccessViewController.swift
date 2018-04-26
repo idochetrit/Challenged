@@ -10,14 +10,35 @@ import UIKit
 
 class SuccessViewController: UIViewController {
 
+  
+  
   @IBOutlet weak var secondView: UIView!
+
+  @IBOutlet weak var prizeImage: UIImageView!
+  @IBOutlet weak var logoImage: UIImageView!
+
+  @IBAction func playAgain(_ sender: Any) {
+    //IDO'S CODE - Play again
+  }
+  @IBAction func moreChallenges(_ sender: Any) {
+    
+  }
+  
   override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+    self.hero.isEnabled = true
+    
+    //Place all Info
+    prizeImage?.image = UIImage(named:"20precent.png")
+    logoImage?.image = UIImage(named:"icon_audi.png")
+    
+    //Backgrounds of 2 views
     self.view.backgroundColor = UIColor(patternImage: UIImage(named: "galaxy_bg.png")!)
     secondView.backgroundColor = UIColor(white: 0.9, alpha: 0.8)
-        
-    }
+    
+    
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

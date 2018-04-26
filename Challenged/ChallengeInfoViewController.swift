@@ -18,17 +18,28 @@ class ChallengeInfoViewController: UIViewController {
   @IBOutlet weak var lognText: UILabel!
   @IBOutlet weak var prizeDescrip: UILabel!
   @IBOutlet weak var prizeImg: UIImageView!
-  
   @IBOutlet weak var secondView: UIView!
-  var challengeInfo: ChallengeInfo!
+  @IBOutlet weak var playBut: UIButton!
   
-  var panGR: UIPanGestureRecognizer!
+  var challengeInfo: ChallengeInfo!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.view.backgroundColor = UIColor(patternImage: UIImage(named: "galaxy_bg.png")!)
-    secondView.backgroundColor = UIColor(white: 0.9, alpha: 0.8)
+    secondView.backgroundColor = UIColor(white: 1, alpha: 1)
+    secondView.layer.opacity = 1
+    
+    // border radius
+    secondView.layer.cornerRadius = 15.0
+    // border
+    secondView.layer.borderColor = UIColor.lightGray.cgColor
+    secondView.layer.borderWidth = 3
+    // drop shadow
+    secondView.layer.shadowColor = UIColor.black.cgColor
+    secondView.layer.shadowRadius = 3.0
+    secondView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+    
     self.hero.isEnabled = true
     
     //Place all Info
@@ -39,10 +50,19 @@ class ChallengeInfoViewController: UIViewController {
     prizeImg?.image = challengeInfo.prizeImage
     
     //Design
+    //Button
+    playBut.layer.cornerRadius = 15
+    playBut.layer.shadowRadius = 3.0
+    playBut.layer.shadowOpacity = 1.0
+    playBut.layer.shadowOffset = CGSize(width: 2, height: 2)
+    
     //Long Text
-    lognText?.textAlignment = .left
-    lognText?.lineBreakMode = .byWordWrapping
-    lognText?.numberOfLines = 9
+    lognText.textAlignment = .left
+    lognText.lineBreakMode = .byWordWrapping
+    lognText.numberOfLines = 9
+    
+    titleChallenge.numberOfLines = 2
+    prizeDescrip.numberOfLines = 2
   }
 
   override func didReceiveMemoryWarning() {
