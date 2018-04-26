@@ -50,8 +50,8 @@ class Robot: SCNNode {
     
     let toggled = index % 2 == 0
     let insertionYOffset : Float = 1.1
-    let intervalXOffset =  min(Float(index) * (0.3), 2)
-    let intervalZOffset =  min(Float(index) * (0.2), 3)
+    let intervalXOffset =  min(Float(index) * (0.5), 2)
+    let intervalZOffset =  min(Float(index) * (0.4), 3)
     print("Z offset: ", intervalZOffset, " + ")
     print("X offset: ", intervalXOffset, " -/+: ", toggled)
     
@@ -62,7 +62,7 @@ class Robot: SCNNode {
     )
     
     robot.position = position
-//    robot.eulerAngles.y = -.pi/2
+    robot.eulerAngles.y = -.pi/2
   }
   
   

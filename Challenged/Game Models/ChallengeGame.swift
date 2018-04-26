@@ -16,8 +16,7 @@ class ChallengeGame: NSObject {
   let info: ChallengeInfo!
   
   var plistData: [String: AnyObject] = [:] //Our data
-  
-  var targetsHit: Int = 0
+  var targetsHits: Int = 0
   var startedAt: Date!
   
   
@@ -68,16 +67,18 @@ class ChallengeGame: NSObject {
   }
   
   func hit()  {
-    self.targetsHit += 1
+    self.targetsHits += 1
   }
   
   func isEnded() -> Bool {
     let timeDiff: TimeInterval =  Date.init().timeIntervalSince(startedAt)
-    return targetsHit >= numOfTargets || timeDiff >= timeLimit
+    return targetsHits >= numberOfTargets || timeDiff >= timeLimit
   }
   
   func pushFinishScreen(source: UIViewController) {
-//    source.present(FinishViewController, animated: true, completion: nil)
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "successView") as! SuccessViewController
+    source.present(viewController, animated: false, completion: nil)
   }
   
 }

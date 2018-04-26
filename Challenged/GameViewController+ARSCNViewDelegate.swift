@@ -35,8 +35,8 @@ extension GameViewController: ARSCNViewDelegate {
     // update game time
     self.gameTime = Date().timeIntervalSince(gameInstance.startedAt)
     
-    print("Game Time: ", time)
-    print("Game Time (elapsed): ", self.gameTime)
+//    print("Game Time: ", time)
+//    print("Game Time (elapsed): ", self.gameTime)
     
     updateHUDLabels()
     if gameInstance.isEnded() {
@@ -49,6 +49,12 @@ extension GameViewController: ARSCNViewDelegate {
     let robotNode = Robot(id: index)
     
     robotNode.setupPosition(node: planeNode)
+    
+    // hook direction to camera
+    let billboardConstraint = SCNBillboardConstraint()
+    billboardConstraint.freeAxes = SCNBillboardAxis.Z
+    robotNode.constraints = [billboardConstraint]
+    
     print("Alien pos. ", robotNode.position)
     print("Plane Node pos. ", planeNode.position)
     

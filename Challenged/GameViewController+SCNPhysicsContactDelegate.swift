@@ -36,7 +36,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
     
     // play sounds effect
     DispatchQueue.main.async {
-      self.playSoundEffect(ofType: .explosion)
+//      self.playSoundEffect(ofType: .explosion)
     }
     
     // remove the bullet
@@ -47,7 +47,6 @@ extension GameViewController: SCNPhysicsContactDelegate {
     })
   }
   
-  
   func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
     // Play collision sound for all collisions (bullet-bullet, etc.)
     
@@ -56,10 +55,8 @@ extension GameViewController: SCNPhysicsContactDelegate {
       let systemNode = SCNNode()
       systemNode.addParticleSystem(particleSystem!)
       // place explosion where node is
-      if let robotNode = node as? Robot {
-        systemNode.position = robotNode.robot.position
-        sceneView.scene.rootNode.addChildNode(systemNode)
-      }
+      systemNode.position = node.position
+      sceneView.scene.rootNode.addChildNode(systemNode)
     }
     
     // remove node

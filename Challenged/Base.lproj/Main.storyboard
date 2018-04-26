@@ -35,18 +35,26 @@
                                     <outletCollection property="gestureRecognizers" destination="9ac-Bg-WXU" appends="YES" id="xav-AC-VMO"/>
                                 </connections>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo8-K0-b9n">
-                                <rect key="frame" x="16" y="20" width="343" height="33"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91948672279792742" green="0.91948672279792742" blue="0.91948672279792742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="target" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXV-3I-qKW">
-                                <rect key="frame" x="160" y="305" width="55" height="56"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cross-hair" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXV-3I-qKW">
+                                <rect key="frame" x="136" y="281" width="110" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-0B-jN4">
+                                <rect key="frame" x="8" y="613" width="86" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.320535136" green="0.320535136" blue="0.320535136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo8-K0-b9n">
+                                <rect key="frame" x="95" y="10" width="185" height="36"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.32053513601036265" green="0.32053513601036265" blue="0.32053513601036265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -55,8 +63,11 @@
                             <outletCollection property="gestureRecognizers" destination="9ac-Bg-WXU" appends="YES" id="NAE-bV-yUh"/>
                         </connections>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="5WI-Lu-V6b" id="WmW-oB-Z5R"/>
+                        <outlet property="hitCountLabel" destination="wpe-0B-jN4" id="o51-g7-H1L"/>
                         <outlet property="sceneView" destination="dpb-fU-uWI" id="CuK-so-9Gx"/>
                         <outlet property="timerLabel" destination="eo8-K0-b9n" id="QOx-wh-wVJ"/>
                     </connections>
@@ -83,8 +94,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="30L-Cj-l8c" id="ug8-Cx-Dv0"/>
-                                    <outlet property="delegate" destination="30L-Cj-l8c" id="qqZ-PB-Sm6"/>
+                                    <outlet property="dataSource" destination="30L-Cj-l8c" id="ngi-Xb-OlU"/>
+                                    <outlet property="delegate" destination="30L-Cj-l8c" id="lfn-Oo-RXR"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Challenges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-lq-cP1">
@@ -231,7 +242,7 @@
         <!--Success View Controller-->
         <scene sceneID="b3N-XY-lBD">
             <objects>
-                <viewController id="zYv-ZI-Cmg" customClass="SuccessViewController" customModule="Challenged" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="successView" id="zYv-ZI-Cmg" customClass="SuccessViewController" customModule="Challenged" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z5d-Eh-jFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,7 +430,6 @@
         <image name="playagain" width="512" height="512"/>
         <image name="robot" width="400" height="400"/>
         <image name="starempty" width="261" height="245"/>
-        <image name="target" width="288" height="288"/>
         <image name="yellowstar" width="252" height="248"/>
     </resources>
 </document>

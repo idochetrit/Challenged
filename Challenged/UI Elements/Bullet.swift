@@ -15,7 +15,7 @@ class Bullet: SCNNode {
 
   override init () {
     super.init()
-    let sphere = SCNSphere(radius: 0.045)
+    let sphere = SCNSphere(radius: 0.055)
     self.geometry = sphere
     let shape = SCNPhysicsShape(geometry: sphere, options: nil)
     self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)

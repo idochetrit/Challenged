@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
   // view components
   @IBOutlet var containerView: UIView!
   @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var hitCountLabel: UILabel!
   @IBOutlet var sceneView: ARSCNView!
   private var crosshairImageView: UIImageView?
   
@@ -49,6 +50,9 @@ class GameViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
   
   func setupWorld() {
     // Set the view's delegate
@@ -56,7 +60,7 @@ class GameViewController: UIViewController {
     
     // Show statistics such as fps and timing information, debuge options
     sceneView.showsStatistics = true
-//    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
+    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
     
     // Set the scene to the view
     sceneView.scene = SCNScene()
@@ -84,8 +88,11 @@ class GameViewController: UIViewController {
   }
   
   func configureLighting() {
-    sceneView.autoenablesDefaultLighting = false
+    sceneView.autoenablesDefaultLighting = true
     sceneView.automaticallyUpdatesLighting = true
+    
+    let lightNode = Sun()
+    self.sceneView.scene.rootNode.addChildNode(lightNode)
   }
   
   // MARK: - Actions
@@ -96,7 +103,12 @@ class GameViewController: UIViewController {
     let (dir, pos) = getUserVector()
     bulletsNode.position = pos
     
-    let bulletVector = SCNVector3(dir.x * 2.5, dir.y * 2.5, dir.z * 2.5)
+    //play sound
+    DispatchQueue.main.async {
+//      self.playSoundEffect(ofType: .shoot)
+    }
+    
+    let bulletVector = SCNVector3(dir.x * 1.8, dir.y * 1.8, dir.z * 1.8)
     bulletsNode.physicsBody?.applyForce(bulletVector, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
     
@@ -106,7 +118,8 @@ class GameViewController: UIViewController {
   }
   
   func setupHUD() {
-    timerLabel.layer.cornerRadius = 20
+    timerLabel.layer.cornerRadius = 15
+    hitCountLabel.layer.cornerRadius = 15
   }
   
   func updateHUDLabels() {
@@ -120,7 +133,9 @@ class GameViewController: UIViewController {
       let secsStr = secs < 10 ? "0\(secs)" : String(secs)
       self.timerLabel.text = "\(minsStr):\(secsStr)"
       
-      
+      // update hitcount
+      self.hitCountLabel.text =
+        "\(self.gameInstance.targetsHits) \\ \(self.gameInstance.numberOfTargets)"
     }
     
   }
@@ -129,7 +144,6 @@ class GameViewController: UIViewController {
   // MARK: - Sound Effects
   
   func playSoundEffect(ofType effect: SoundEffect) {
-    
     // Async to avoid substantial cost to graphics processing (may result in sound effect delay however)
     DispatchQueue.main.async {
       do
@@ -151,5 +165,6 @@ class GameViewController: UIViewController {
 
 enum SoundEffect: String {
   case explosion = "splash"
+  case shoot = "shoot"
 }
 
