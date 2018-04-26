@@ -98,11 +98,24 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
       found(code: stringValue)
     }
     
-    dismiss(animated: true)
+//    dismiss(animated: true)
   }
   
   func found(code: String) {
-    print(code)
+    print("QR code:", code)
+    let regex = "^start_game_(\\d+)"
+    guard let matches = code.capturedGroups(withRegex: regex)
+      else { print("challenge ID not found"); return }
+    if (!matches.isEmpty) {
+      let challengeID = Int(matches[0])!
+      
+      let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+      let viewController = storyboard.instantiateViewController(withIdentifier: "challengeInfo") as! ChallengeInfoViewController
+      
+      viewController.challengeInfo = ChallengeInfoStore.data[challengeID]
+      viewController.hero.modalAnimationType = .zoom
+      present(viewController, animated: true, completion: nil)
+    }
   }
   
   override var prefersStatusBarHidden: Bool {
@@ -112,48 +125,6 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
   override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return .portrait
   }
-  
-    
-
-    //Get the back camera
-//    let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
-//
-//    guard let captureDevice = deviceDiscoverySession.devices.first else {
-//      print("Failed to get the camera device")
-//      return
-//    }
-//
-//    do {
-//      // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-//      let input = try AVCaptureDeviceInput(device: captureDevice)
-//
-//      // Set the input device on the capture session.
-//      captureSession?.addInput(input)
-//
-//      // Initialize a AVCaptureMetadataOutput object
-//      // and set it as the output device to the capture session.
-//      let captureMetadataOutput = AVCaptureMetadataOutput()
-//      captureSession?.addOutput(captureMetadataOutput)
-//
-//      // Set delegate and use the default dispatch queue to execute the call back
-//      captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-//      captureMetadataOutput.metadataObjectTypes = [.qr]
-//
-//      // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-//      videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-//      videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-//      videoPreviewLayer?.frame = view.layer.bounds
-//      view.layer.addSublayer(videoPreviewLayer!)
-//
-//      //Start capture
-//      captureSession?.startRunning()
-//
-//    } catch {
-//      // If any error occurs, simply print it out and don't continue any more.
-//      print(error)
-//      return
-//    }
-    
 
 
   override func didReceiveMemoryWarning() {

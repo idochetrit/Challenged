@@ -10,11 +10,12 @@ import UIKit
 import SceneKit
 import ARKit
 
-class GameViewController: UIViewController, SCNPhysicsContactDelegate {
+class GameViewController: UIViewController {
 
   @IBOutlet var sceneView: ARSCNView!
   
   // models
+  var gameInstance: ChallengeGame!
   var planeNodes: [Plane] = []
   var player: AVAudioPlayer!
   var aliens: [Robot] = []
@@ -50,7 +51,7 @@ class GameViewController: UIViewController, SCNPhysicsContactDelegate {
     
     // Show statistics such as fps and timing information, debuge options
     sceneView.showsStatistics = true
-    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
+//    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
     
     // Set the scene to the view
     sceneView.scene = SCNScene()
@@ -59,7 +60,7 @@ class GameViewController: UIViewController, SCNPhysicsContactDelegate {
     configureLighting()
     // add aliens timer
     if (timer == nil) {
-      timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addAlienTimed), userInfo: nil, repeats: true)
+      timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.addAlienTimed), userInfo: nil, repeats: true)
     }
   }
   
@@ -76,8 +77,8 @@ class GameViewController: UIViewController, SCNPhysicsContactDelegate {
     sceneView.autoenablesDefaultLighting = false
     sceneView.automaticallyUpdatesLighting = true
     
-    let lightNode = Sun()
-    self.sceneView.scene.rootNode.addChildNode(lightNode)
+//    let lightNode = Sun()
+//    self.sceneView.scene.rootNode.addChildNode(lightNode)
   }
   
   // MARK: - Actions
@@ -96,56 +97,8 @@ class GameViewController: UIViewController, SCNPhysicsContactDelegate {
       self.removeNodeWithAnimation(bulletsNode, explosion: false)
     })
   }
-
-  func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
-    // Play collision sound for all collisions (bullet-bullet, etc.)
-    
-    if explosion {
-      DispatchQueue.main.async {
-        self.playSoundEffect(ofType: .explosion)
-      }
-      
-      let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: "art.scnassets")
-      let systemNode = SCNNode()
-      systemNode.addParticleSystem(particleSystem!)
-      // place explosion where node is
-      systemNode.position = node.position
-      sceneView.scene.rootNode.addChildNode(systemNode)
-    }
-    
-    // remove node
-    node.removeFromParentNode()
-  }
   
-  
-  // MARK: - Contact Delegate
-  
-  func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
-    print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask,
-          contact.nodeB.physicsBody!.categoryBitMask)
-    
-    print("Hit alien!")
-    
-    var collisionBoxNode: SCNNode!
-    if contact.nodeA.physicsBody?.categoryBitMask == Bullet.BitMask {
-      collisionBoxNode = contact.nodeB
-    } else {
-      collisionBoxNode = contact.nodeA
-    }
-    var contactNode: SCNNode!
-    if contact.nodeA.physicsBody?.categoryBitMask == Robot.BitMask {
-      contactNode = contact.nodeB
-    } else {
-      contactNode = contact.nodeA
-    }
-    
-    // remove the bullet
-    self.removeNodeWithAnimation(collisionBoxNode, explosion: false)
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-      // // remove/replace ship after half a second to visualize collision
-      self.removeNodeWithAnimation(contactNode, explosion: true)
-    })
-  }
+ 
   
   // MARK: - Sound Effects
   

@@ -32,17 +32,17 @@ class ChallengeInfoViewController: UIViewController {
     self.hero.isEnabled = true
     
     //Place all Info
-    titleChallenge.text = challengeInfo.challengeName
-    bigImage.image = challengeInfo.companyImage
-    lognText.text = challengeInfo.longDescription
-    prizeDescrip.text = challengeInfo.prizeDescription
-    prizeImg.image = challengeInfo.prizeImage
+    titleChallenge?.text = challengeInfo.challengeName
+    bigImage?.image = challengeInfo.companyImage
+    lognText?.text = challengeInfo.longDescription
+    prizeDescrip?.text = challengeInfo.prizeDescription
+    prizeImg?.image = challengeInfo.prizeImage
     
     //Design
     //Long Text
-    lognText.textAlignment = NSTextAlignment.left
-    lognText.lineBreakMode = .byWordWrapping
-    lognText.numberOfLines = 9
+    lognText?.textAlignment = .left
+    lognText?.lineBreakMode = .byWordWrapping
+    lognText?.numberOfLines = 9
   }
 
   override func didReceiveMemoryWarning() {
@@ -54,14 +54,12 @@ class ChallengeInfoViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
   
-  /*
-  // MARK: - Navigation
-
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destinationViewController.
-      // Pass the selected object to the new view controller.
+    if segue.identifier == "startGame" {
+      guard let destinationVC = segue.destination as? GameViewController
+        else {return}
+      destinationVC.gameInstance = ChallengeGame.init(challengeInfo)
+    }
   }
-  */
 
 }

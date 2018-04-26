@@ -1,9 +1,3 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-SceneKit node wrapper for plane geometry detected in AR.
-*/
 
 import Foundation
 import ARKit

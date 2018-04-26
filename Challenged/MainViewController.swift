@@ -52,14 +52,7 @@ class MainViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     
     //All INFO
-    infos = [ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_audi"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_audi"), challengeName: "Bull's Eye", shortDescription: "Save us from the robot invasion and win:", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_google"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_canada"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_intel"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_asana"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF"),
-             ChallengeInfo(companyImage: #imageLiteral(resourceName: "icon_canada"), challengeName: "Audi", shortDescription: "A German car manufacturer", prizeImage: #imageLiteral(resourceName: "20precent"), longDescription: "Audiis a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and has its roots at Ingolstadt, Bavaria, Germany. Audi-branded vehicles are produced in nine production facilities worldwide.", prizeDescription: "Get 20% OFF")
-    ]
+    infos = ChallengeInfoStore.data
   }
 
   
@@ -100,12 +93,4 @@ class MainViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
   }
   
   
-}
-struct ChallengeInfo{
-  var companyImage: UIImage
-  var challengeName: String
-  var shortDescription: String
-  var prizeImage: UIImage
-  var longDescription: String
-  var prizeDescription: String
 }

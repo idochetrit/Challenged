@@ -1,9 +1,9 @@
 //
-//  Alien.swift
-//  EnigmaAR
+//  Robot.swift
+//  Challenged
 //
-//  Created by Ido Chetrit on 14/04/2018.
-//  Copyright © 2018 Ido Chetrit. All rights reserved.
+//  Created by Ido Chetrit on 26/04/2018.
+//  Copyright © 2018 hackidc66. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ import SceneKit
 class Robot: SCNNode {
   var id: Int?
   var parentPlaneNode: Plane!
+  var robot: SCNNode!
   static let BitMask = 0b0001
 
   
@@ -24,38 +25,21 @@ class Robot: SCNNode {
     self.id = id
     
     // add scene
-    let alienScene = SCNScene(named: "art.scnassets/Robot.scn")!
-    guard let rootAlienNode = alienScene.rootNode.childNode(withName: "Robot", recursively: true)
+    guard let robotScene = SCNScene(named: "art.scnassets/Robot2.scn")
       else { print("cant find scene"); return }
-    let alienNodes: [SCNNode] = rootAlienNode.childNodes
 
-    for childNode in alienNodes {
+    for childNode in robotScene.rootNode.childNodes {
       self.addChildNode(childNode)
     }
     
+    guard let rootRobot = self.childNode(withName: "Robot", recursively: true)
+      else { print("cant find robot root node"); return }
+    self.robot = rootRobot
     
-//    let w = CGFloat(2.0)
-//    let h = CGFloat(4.277)
-//    let l =  CGFloat(2.387)
-//    let box = SCNBox(width: w, height: h, length: l, chamferRadius: 0)
-//    let clear =  SCNMaterial()
-//    clear.transparency = 0.5
-//    clear.diffuse.contents = UIColor.lightGray
-//    box.materials = [clear]
-//    self.geometry = box
-//    let shape = SCNPhysicsShape(geometry: box, options: nil)
-//    self.geometry = rootAlienNode.geometry
-//    let shape = SCNPhysicsShape(node: rootAlienNode,
-//                                options: [SCNPhysicsShape.Option.type: SCNPhysicsShape.ShapeType.boundingBox])
-//    let alienShape = rootAlienNode.physicsBody?.physicsShape
-//    self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
-    self.physicsBody?.isAffectedByGravity = false
-    self.physicsBody?.contactTestBitMask = Bullet.BitMask
-    self.physicsBody?.categoryBitMask = Robot.BitMask
+    self.robot.castsShadow = true
     
-    self.castsShadow = true
+    self.robot.scale = SCNVector3(0.04, 0.04, 0.04)
     
-    self.scale = SCNVector3(0.02, 0.02, 0.02)
   }
   
   func setupPosition(node: Plane) {
@@ -65,20 +49,21 @@ class Robot: SCNNode {
     let transform = SCNVector3.positionFromTransform(node.simdTransform)
     
     let toggled = index % 2 == 0
-    let insertionYOffset : Float = 0.5
-    let intervalXOffset =  min(Float(index) * (0.4), 2)
-    let intervalZOffset =  min(Float(index) * (0.4), 2)
+    let insertionYOffset : Float = 1.2
+    let intervalXOffset =  min(Float(index) * (0.6), 2)
+    let intervalZOffset =  min(Float(index) * (0.4), 4)
     print("Z offset: ", intervalZOffset, " -/+: ", toggled)
     print("X offset: ", intervalXOffset, " -/+: ", toggled)
     
     let position = SCNVector3(
       transform.x + (toggled ? -intervalXOffset : intervalXOffset),
       transform.y - insertionYOffset,
-      transform.z - 0.22 + (toggled ? -intervalZOffset : intervalZOffset)
+      transform.z - 1.42 + (toggled ? -intervalZOffset : intervalZOffset)
     )
     
-    self.position = position
-    self.eulerAngles.z = -.pi / 2
+    robot.position = position
+    robot.eulerAngles.x = -.pi/2
+    robot.eulerAngles.y = .pi/2
   }
   
   

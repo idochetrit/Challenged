@@ -41,7 +41,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="199" y="116"/>
+            <point key="canvasLocation" x="919" y="878"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="oWl-6q-Pz0">
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Az-rP-rb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703.20000000000005" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1762" y="878"/>
         </scene>
         <!--Challenge Info View Controller-->
         <scene sceneID="pJx-5S-Soi">
@@ -98,7 +98,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BH7-0R-IzR">
                                 <rect key="frame" x="30" y="46" width="314" height="575"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Klt-ic-2fm">
                                         <rect key="frame" x="20" y="26" width="156" height="140"/>
@@ -135,6 +135,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Accept"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="show" identifier="startGame" id="0wH-CL-FpX"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-HR-nA9">
                                         <rect key="frame" x="114" y="417" width="200" height="62"/>
@@ -170,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgc-z4-DtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="878.41079460269873"/>
+            <point key="canvasLocation" x="79" y="878"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="b3N-XY-lBD">

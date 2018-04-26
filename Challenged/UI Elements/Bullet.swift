@@ -1,10 +1,11 @@
 //
 //  Bullet.swift
-//  EnigmaAR
+//  Challenged
 //
-//  Created by Ido Chetrit on 14/04/2018.
-//  Copyright © 2018 Ido Chetrit. All rights reserved.
+//  Created by Ido Chetrit on 26/04/2018.
+//  Copyright © 2018 hackidc66. All rights reserved.
 //
+
 
 import UIKit
 import SceneKit
@@ -14,7 +15,7 @@ class Bullet: SCNNode {
 
   override init () {
     super.init()
-    let sphere = SCNSphere(radius: 0.055)
+    let sphere = SCNSphere(radius: 0.045)
     self.geometry = sphere
     let shape = SCNPhysicsShape(geometry: sphere, options: nil)
     self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)

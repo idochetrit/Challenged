@@ -14,6 +14,10 @@
 		344D926F2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D926E2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift */; };
 		344D92712091BE2100553719 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D92702091BE2100553719 /* Utilities.swift */; };
 		344D92732091D2BE00553719 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D92722091D2BE00553719 /* Sun.swift */; };
+		344D92752091FFE900553719 /* ChallengeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D92742091FFE900553719 /* ChallengeGame.swift */; };
+		344D92772092016E00553719 /* Challenges.plist in Resources */ = {isa = PBXBuildFile; fileRef = 344D92762092016E00553719 /* Challenges.plist */; };
+		344D9279209218E600553719 /* ChallengeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D9278209218E600553719 /* ChallengeInfo.swift */; };
+		344D927B209229C900553719 /* GameViewController+SCNPhysicsContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D927A209229C900553719 /* GameViewController+SCNPhysicsContactDelegate.swift */; };
 		34A4984E2091B3080070A2F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A4984D2091B3080070A2F9 /* AppDelegate.swift */; };
 		34A498502091B3080070A2F9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A4984F2091B3080070A2F9 /* art.scnassets */; };
 		34A498522091B3080070A2F9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A498512091B3080070A2F9 /* GameViewController.swift */; };
@@ -39,6 +43,10 @@
 		344D926E2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		344D92702091BE2100553719 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		344D92722091D2BE00553719 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		344D92742091FFE900553719 /* ChallengeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeGame.swift; sourceTree = "<group>"; };
+		344D92762092016E00553719 /* Challenges.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Challenges.plist; sourceTree = "<group>"; };
+		344D9278209218E600553719 /* ChallengeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeInfo.swift; sourceTree = "<group>"; };
+		344D927A209229C900553719 /* GameViewController+SCNPhysicsContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+SCNPhysicsContactDelegate.swift"; sourceTree = "<group>"; };
 		34A4984A2091B3080070A2F9 /* Challenged.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenged.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A4984D2091B3080070A2F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A4984F2091B3080070A2F9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -105,13 +113,14 @@
 				34A498672091B4520070A2F9 /* Assets.xcassets */,
 				34A4984F2091B3080070A2F9 /* art.scnassets */,
 				34A498512091B3080070A2F9 /* GameViewController.swift */,
+				344D927A209229C900553719 /* GameViewController+SCNPhysicsContactDelegate.swift */,
 				344D926E2091BA7300553719 /* GameViewController+ARSCNViewDelegate.swift */,
 				34A498652091B3E10070A2F9 /* MainViewController.swift */,
-				34A498532091B3080070A2F9 /* Main.storyboard */,
 				503DF64E2091D88700160F4D /* QRScannerController.swift */,
 				503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */,
 				503DF6492091B92600160F4D /* CollectionViewCell.swift */,
 				503DF655209236D100160F4D /* SuccessViewController.swift */,
+				34A498532091B3080070A2F9 /* Main.storyboard */,
 				503DF6482091B92500160F4D /* CollectionViewCell.xib */,
 				34A498582091B30A0070A2F9 /* LaunchScreen.storyboard */,
 				34A4985B2091B30A0070A2F9 /* Info.plist */,
@@ -138,6 +147,9 @@
 		34A498622091B3360070A2F9 /* Game Models */ = {
 			isa = PBXGroup;
 			children = (
+				344D92742091FFE900553719 /* ChallengeGame.swift */,
+				344D9278209218E600553719 /* ChallengeInfo.swift */,
+				344D92762092016E00553719 /* Challenges.plist */,
 			);
 			path = "Game Models";
 			sourceTree = "<group>";
@@ -244,6 +256,7 @@
 				34A498552091B3080070A2F9 /* Main.storyboard in Resources */,
 				344D926D2091B8CB00553719 /* explosion.mp3 in Resources */,
 				503DF64B2091B92600160F4D /* CollectionViewCell.xib in Resources */,
+				344D92772092016E00553719 /* Challenges.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +310,7 @@
 			files = (
 				34A498662091B3E10070A2F9 /* MainViewController.swift in Sources */,
 				34A498522091B3080070A2F9 /* GameViewController.swift in Sources */,
+				344D927B209229C900553719 /* GameViewController+SCNPhysicsContactDelegate.swift in Sources */,
 				344D92692091B8B400553719 /* Plane.swift in Sources */,
 				344D926A2091B8B400553719 /* Robot.swift in Sources */,
 				34A4984E2091B3080070A2F9 /* AppDelegate.swift in Sources */,
@@ -306,8 +320,10 @@
 				344D92732091D2BE00553719 /* Sun.swift in Sources */,
 				503DF64C2091B92600160F4D /* CollectionViewCell.swift in Sources */,
 				503DF64D2091B92600160F4D /* ChallengeInfoViewController.swift in Sources */,
+				344D9279209218E600553719 /* ChallengeInfo.swift in Sources */,
 				503DF64F2091D88700160F4D /* QRScannerController.swift in Sources */,
 				503DF656209236D100160F4D /* SuccessViewController.swift in Sources */,
+				344D92752091FFE900553719 /* ChallengeGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

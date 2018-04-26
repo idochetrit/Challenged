@@ -22,10 +22,10 @@ class Sun: SCNNode {
     let sunScene = SCNScene(named: "art.scnassets/Sun.scn")!
     guard let sunNode = sunScene.rootNode.childNode(withName: "Sun", recursively: true)
       else { print("cant find scene"); return }
-//    guard let ambientNode = sunScene.rootNode.childNode(withName: "ambient", recursively: true)
-//      else { print("cant find scene"); return }
+    guard let ambientNode = sunScene.rootNode.childNode(withName: "ambient", recursively: true)
+      else { print("cant find scene"); return }
     
-//    addChildNode(ambientNode)
+    addChildNode(ambientNode)
 //    sunNode.position = SCNVector3(0, -19.4, 5)
     addChildNode(sunNode)
   }
