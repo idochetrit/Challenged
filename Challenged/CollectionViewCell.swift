@@ -23,13 +23,12 @@ class CollectionViewCell:  FSPagerViewCell {
     super.layoutSubviews()
     
     //design HEADLINE-title
-    title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     title.textAlignment = NSTextAlignment.center
-    title.font = UIFont(name:"HelveticaNeue-Bold", size: 32.0)
     title.layer.shadowColor = UIColor.lightGray.cgColor
     title.layer.shadowRadius = 3.0
     title.layer.shadowOpacity = 1.0
-    title.layer.shadowOffset = CGSize(width: 4, height: 4)
+    title.layer.shadowOffset = CGSize(width: 2, height: 2)
     title.layer.masksToBounds = false
     
     descrip.lineBreakMode = .byWordWrapping

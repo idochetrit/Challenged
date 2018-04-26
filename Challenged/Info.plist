@@ -46,5 +46,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>autodestructbb_bold.ttf</string>
+		<string>autodestructbb_reg.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -12,6 +12,7 @@ import AVFoundation
 class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
   
+  @IBOutlet weak var previewView: UIView!
   @IBOutlet var messageLabel:UILabel!
   @IBOutlet var topbar: UIView!
   
@@ -23,8 +24,8 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
       super.viewDidLoad()
 
     // Move the message label and top bar to the front
-    view.bringSubview(toFront: messageLabel)
     view.bringSubview(toFront: topbar)
+    view.bringSubview(toFront: messageLabel)
     
     captureSession = AVCaptureSession()
     
@@ -59,7 +60,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewLayer.frame = view.layer.bounds
     previewLayer.videoGravity = .resizeAspectFill
-    view.layer.addSublayer(previewLayer)
+    previewView.layer.addSublayer(previewLayer)
     
     captureSession.startRunning()
   }

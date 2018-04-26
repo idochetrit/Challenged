@@ -19,12 +19,16 @@ class ChallengeInfoViewController: UIViewController {
   @IBOutlet weak var prizeDescrip: UILabel!
   @IBOutlet weak var prizeImg: UIImageView!
   
+  @IBOutlet weak var secondView: UIView!
   var challengeInfo: ChallengeInfo!
   
   var panGR: UIPanGestureRecognizer!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.view.backgroundColor = UIColor(patternImage: UIImage(named: "galaxy_bg.png")!)
+    secondView.backgroundColor = UIColor(white: 0.9, alpha: 0.8)
     self.hero.isEnabled = true
     
     //Place all Info
