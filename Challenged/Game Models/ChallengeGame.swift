@@ -15,22 +15,23 @@ class ChallengeGame: NSObject {
   let timeLimit: TimeInterval
   let info: ChallengeInfo!
   
-  var targetsHit: Int!
+  var targetsHit: Int = 0
   var startedAt: Date!
   
   
   init(_  info: ChallengeInfo) {
     self.id = info.gameID
-    
-    var myDict: NSDictionary?
-    if let path = Bundle.main.path(forResource: "Game\\ Models/Challenges", ofType: "plist") {
-      myDict = NSDictionary(contentsOfFile: path)
-    }
-    if let dict = myDict {
-      dict[String(id)]
-    }
+
+    // default attrs
     self.timeLimit = 60.0
-    self.numberOfTargets = 2
+    self.numberOfTargets = 5
+    
+    if let path = Bundle.main.path(forResource: "Challenges", ofType: "plist"),
+      let dict = NSDictionary(contentsOfFile: path),
+      let metadata = dict.object(forKey: String(id)) as? NSDictionary {
+        metadata.object(forKey: "numberOfTargets")
+    }
+  
     self.info = info
     startedAt = Date.init()
     super.init()
@@ -38,6 +39,10 @@ class ChallengeGame: NSObject {
   
   func name() -> String {
     return info.challengeName
+  }
+  
+  func hit()  {
+    self.targetsHit += 1
   }
   
   func isEnded() -> Bool {

@@ -12,16 +12,21 @@ import ARKit
 
 class GameViewController: UIViewController {
 
+  // view components
+  @IBOutlet var containerView: UIView!
+  @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet var sceneView: ARSCNView!
+  private var crosshairImageView: UIImageView?
   
   // models
   var gameInstance: ChallengeGame!
   var planeNodes: [Plane] = []
-  var player: AVAudioPlayer!
   var aliens: [Robot] = []
   
   // utils
-  var timer: Timer!
+  var robotsInterval: Timer!
+  var player: AVAudioPlayer!
+  var gameTime: TimeInterval!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,12 +61,17 @@ class GameViewController: UIViewController {
     // Set the scene to the view
     sceneView.scene = SCNScene()
     sceneView.scene.physicsWorld.contactDelegate = self
-    
+
     configureLighting()
-    // add aliens timer
-    if (timer == nil) {
-      timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.addAlienTimed), userInfo: nil, repeats: true)
+    // add robots timer
+    if (robotsInterval == nil) {
+      robotsInterval = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.addRobotInterval), userInfo: nil, repeats: true)
     }
+    
+    //start counter
+    gameTime = 0.0
+    
+    setupHUD()
   }
   
   func configureSession() {
@@ -76,9 +86,6 @@ class GameViewController: UIViewController {
   func configureLighting() {
     sceneView.autoenablesDefaultLighting = false
     sceneView.automaticallyUpdatesLighting = true
-    
-//    let lightNode = Sun()
-//    self.sceneView.scene.rootNode.addChildNode(lightNode)
   }
   
   // MARK: - Actions
@@ -89,7 +96,7 @@ class GameViewController: UIViewController {
     let (dir, pos) = getUserVector()
     bulletsNode.position = pos
     
-    let bulletVector = SCNVector3(dir.x * 3.5, dir.y * 3.5, dir.z * 3.5)
+    let bulletVector = SCNVector3(dir.x * 2.5, dir.y * 2.5, dir.z * 2.5)
     bulletsNode.physicsBody?.applyForce(bulletVector, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
     
@@ -98,6 +105,25 @@ class GameViewController: UIViewController {
     })
   }
   
+  func setupHUD() {
+    timerLabel.layer.cornerRadius = 20
+  }
+  
+  func updateHUDLabels() {
+    DispatchQueue.main.async {
+      let timeLeft = self.gameInstance.timeLimit - self.gameTime
+      let secs = Int(timeLeft.truncatingRemainder(dividingBy: 60))
+      let mins = Int(timeLeft / 60.0)
+
+      // minutes:seconds format
+      let minsStr = mins < 10 ? "0\(mins)" : String(mins)
+      let secsStr = secs < 10 ? "0\(secs)" : String(secs)
+      self.timerLabel.text = "\(minsStr):\(secsStr)"
+      
+      
+    }
+    
+  }
  
   
   // MARK: - Sound Effects
@@ -124,6 +150,6 @@ class GameViewController: UIViewController {
 
 
 enum SoundEffect: String {
-  case explosion = "explosion"
+  case explosion = "splash"
 }
 

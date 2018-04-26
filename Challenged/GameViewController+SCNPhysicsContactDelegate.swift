@@ -12,12 +12,11 @@ import SceneKit
 extension GameViewController: SCNPhysicsContactDelegate {
   
   // MARK: - Contact Delegate
-  
   func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
     print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask,
           contact.nodeB.physicsBody!.categoryBitMask)
     
-    print("Hit alien!")
+    print("Hit robot!")
     
     var collisionBoxNode: SCNNode!
     if contact.nodeA.physicsBody?.categoryBitMask == Bullet.BitMask {
@@ -32,10 +31,18 @@ extension GameViewController: SCNPhysicsContactDelegate {
       contactNode = contact.nodeA
     }
     
+    // update game
+    gameInstance.hit()
+    
+    // play sounds effect
+    DispatchQueue.main.async {
+      self.playSoundEffect(ofType: .explosion)
+    }
+    
     // remove the bullet
     self.removeNodeWithAnimation(collisionBoxNode, explosion: false)
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-      // // remove/replace ship after half a second to visualize collision
+      // // remove/replace robot after half a second to visualize collision
       self.removeNodeWithAnimation(contactNode, explosion: true)
     })
   }
@@ -45,16 +52,14 @@ extension GameViewController: SCNPhysicsContactDelegate {
     // Play collision sound for all collisions (bullet-bullet, etc.)
     
     if explosion {
-      DispatchQueue.main.async {
-        self.playSoundEffect(ofType: .explosion)
-      }
-      
       let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: "art.scnassets")
       let systemNode = SCNNode()
       systemNode.addParticleSystem(particleSystem!)
       // place explosion where node is
-      systemNode.position = node.position
-      sceneView.scene.rootNode.addChildNode(systemNode)
+      if let robotNode = node as? Robot {
+        systemNode.position = robotNode.robot.position
+        sceneView.scene.rootNode.addChildNode(systemNode)
+      }
     }
     
     // remove node

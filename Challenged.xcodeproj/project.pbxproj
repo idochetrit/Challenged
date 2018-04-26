@@ -25,6 +25,7 @@
 		34A4985A2091B30A0070A2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A498582091B30A0070A2F9 /* LaunchScreen.storyboard */; };
 		34A498662091B3E10070A2F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A498652091B3E10070A2F9 /* MainViewController.swift */; };
 		34A498682091B4520070A2F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A498672091B4520070A2F9 /* Assets.xcassets */; };
+		34F1AD3E2092749800975215 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34F1AD3D2092749800975215 /* splash.mp3 */; };
 		503DF64B2091B92600160F4D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DF6482091B92500160F4D /* CollectionViewCell.xib */; };
 		503DF64C2091B92600160F4D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF6492091B92600160F4D /* CollectionViewCell.swift */; };
 		503DF64D2091B92600160F4D /* ChallengeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */; };
@@ -56,6 +57,7 @@
 		34A4985B2091B30A0070A2F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A498652091B3E10070A2F9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		34A498672091B4520070A2F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34F1AD3D2092749800975215 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		503DF6482091B92500160F4D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		503DF6492091B92600160F4D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		503DF64A2091B92600160F4D /* ChallengeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeInfoViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		344D926B2091B8CB00553719 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				34F1AD3D2092749800975215 /* splash.mp3 */,
 				344D926C2091B8CB00553719 /* explosion.mp3 */,
 			);
 			path = Sounds;
@@ -257,6 +260,7 @@
 				344D926D2091B8CB00553719 /* explosion.mp3 in Resources */,
 				503DF64B2091B92600160F4D /* CollectionViewCell.xib in Resources */,
 				344D92772092016E00553719 /* Challenges.plist in Resources */,
+				34F1AD3E2092749800975215 /* splash.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
