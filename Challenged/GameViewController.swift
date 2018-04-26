@@ -10,71 +10,166 @@ import UIKit
 import SceneKit
 import ARKit
 
-class GameViewController: UIViewController, ARSCNViewDelegate {
+class GameViewController: UIViewController, SCNPhysicsContactDelegate {
 
-    @IBOutlet var sceneView: ARSCNView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+  @IBOutlet var sceneView: ARSCNView!
+  
+  // models
+  var planeNodes: [Plane] = []
+  var player: AVAudioPlayer!
+  var aliens: [Robot] = []
+  
+  // utils
+  var timer: Timer!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Run the view's session
-        sceneView.session.run(configuration)
-    }
+    setupWorld()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
-    }
+    configureSession()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    sceneView.session.pause()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
+  
+  
+  func setupWorld() {
+    // Set the view's delegate
+    sceneView.delegate = self
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+    // Show statistics such as fps and timing information, debuge options
+    sceneView.showsStatistics = true
+    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
+    
+    // Set the scene to the view
+    sceneView.scene = SCNScene()
+    sceneView.scene.physicsWorld.contactDelegate = self
+    
+    configureLighting()
+    // add aliens timer
+    if (timer == nil) {
+      timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.addAlienTimed), userInfo: nil, repeats: true)
     }
+  }
+  
+  func configureSession() {
+    let configuration = ARWorldTrackingConfiguration()
+    configuration.planeDetection = .horizontal
+    configuration.isLightEstimationEnabled = true
+    
+    // Run the view's session
+    sceneView.session.run(configuration)
+  }
+  
+  func configureLighting() {
+    sceneView.autoenablesDefaultLighting = false
+    sceneView.automaticallyUpdatesLighting = true
+    
+    let lightNode = Sun()
+    self.sceneView.scene.rootNode.addChildNode(lightNode)
+  }
+  
+  // MARK: - Actions
+  
+  @IBAction func didTapScreen(_ sender: UITapGestureRecognizer) {
+    let bulletsNode = Bullet()
+    
+    let (dir, pos) = getUserVector()
+    bulletsNode.position = pos
+    
+    let bulletVector = SCNVector3(dir.x * 3.5, dir.y * 3.5, dir.z * 3.5)
+    bulletsNode.physicsBody?.applyForce(bulletVector, asImpulse: true)
+    sceneView.scene.rootNode.addChildNode(bulletsNode)
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+      self.removeNodeWithAnimation(bulletsNode, explosion: false)
+    })
+  }
 
-    // MARK: - ARSCNViewDelegate
+  func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
+    // Play collision sound for all collisions (bullet-bullet, etc.)
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+    if explosion {
+      DispatchQueue.main.async {
+        self.playSoundEffect(ofType: .explosion)
+      }
+      
+      let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: "art.scnassets")
+      let systemNode = SCNNode()
+      systemNode.addParticleSystem(particleSystem!)
+      // place explosion where node is
+      systemNode.position = node.position
+      sceneView.scene.rootNode.addChildNode(systemNode)
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+    // remove node
+    node.removeFromParentNode()
+  }
+  
+  
+  // MARK: - Contact Delegate
+  
+  func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+    print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask,
+          contact.nodeB.physicsBody!.categoryBitMask)
+    
+    print("Hit alien!")
+    
+    var collisionBoxNode: SCNNode!
+    if contact.nodeA.physicsBody?.categoryBitMask == Bullet.BitMask {
+      collisionBoxNode = contact.nodeB
+    } else {
+      collisionBoxNode = contact.nodeA
     }
+    var contactNode: SCNNode!
+    if contact.nodeA.physicsBody?.categoryBitMask == Robot.BitMask {
+      contactNode = contact.nodeB
+    } else {
+      contactNode = contact.nodeA
+    }
+    
+    // remove the bullet
+    self.removeNodeWithAnimation(collisionBoxNode, explosion: false)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+      // // remove/replace ship after half a second to visualize collision
+      self.removeNodeWithAnimation(contactNode, explosion: true)
+    })
+  }
+  
+  // MARK: - Sound Effects
+  
+  func playSoundEffect(ofType effect: SoundEffect) {
+    
+    // Async to avoid substantial cost to graphics processing (may result in sound effect delay however)
+    DispatchQueue.main.async {
+      do
+      {
+        if let effectURL = Bundle.main.url(forResource: effect.rawValue, withExtension: "mp3") {
+          
+          self.player = try AVAudioPlayer(contentsOf: effectURL)
+          self.player.play()
+          
+        }
+      }
+      catch let error as NSError {
+        print(error.description)
+      }
+    }
+  }
+}
+
+
+enum SoundEffect: String {
+  case explosion = "explosion"
 }
