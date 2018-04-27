@@ -13,7 +13,7 @@ struct ChallengeInfoStore {
     ChallengeInfo(companyImage: #imageLiteral(resourceName: "macdonalds"),
                   challengeName: "Bull's Eye", shortDescription: "Save us from the robot invasion",
                   prizeImage: #imageLiteral(resourceName: "hamburger"),
-                  gameID: 0, longDescription: "Robots invaided Macdonald's. Their vulnerability is WATER. Help us to stop them by using the water baloons. Eliminate more than 20 in 1 minute to win the prize",
+                  gameID: 0, longDescription: "Robots has invaided Macdonald's. Their  vulnerability is WATER. Help us to stop them by using the water baloons. Eliminate more than 20 in 1 minute to win the prize",
                   prizeDescription: "Yummy Big MAC"),
     ChallengeInfo(companyImage: #imageLiteral(resourceName: "apple"),
                   challengeName: "Treasure Hunt", shortDescription: "Help us to find the treasure",
@@ -26,10 +26,16 @@ struct ChallengeInfoStore {
                   gameID: 2, longDescription: "Robots invaided Macdonald's. Their vulnerability is WATER. Help us to stop them by using the water baloons. Eliminate more than 20 in 1 minute to win the prize",
                   prizeDescription: "Beautiful H&M Shirt"),
     ChallengeInfo(companyImage: #imageLiteral(resourceName: "sabon"),
-                  challengeName: "SABON", shortDescription: "A German car manufacturer",
+                  challengeName: "SABON", shortDescription: "Help us to find the treasure",
                   prizeImage: #imageLiteral(resourceName: "bodycream"),
                   gameID: 3, longDescription: "Robots invaided Macdonald's. Their vulnerability is WATER. Help us to stop them by using the water baloons. Eliminate more than 20 in 1 minute to win the prize",
                   prizeDescription: "SABON's Body Cream"),
+    ChallengeInfo(companyImage: #imageLiteral(resourceName: "gett"),
+                  challengeName: "Gett", shortDescription: "Help us to find the treasure",
+                  prizeImage: #imageLiteral(resourceName: "freeride"),
+                  gameID: 4, longDescription: "Robots invaided Macdonald's. Their vulnerability is WATER. Help us to stop them by using the water baloons. Eliminate more than 20 in 1 minute to win the prize",
+                  prizeDescription: "Free Ride"),
+    
   ]
 }
 

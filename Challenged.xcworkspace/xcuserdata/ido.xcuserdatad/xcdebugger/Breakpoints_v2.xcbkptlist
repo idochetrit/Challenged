@@ -20,13 +20,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Challenged/MainViewController.swift"
-            timestampString = "546472678.1404901"
+            timestampString = "546481072.93783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "FSPagerChallenges"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Challenged/Game Models/ChallengeGame.swift"
+            timestampString = "546481072.93797"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "ChallengeGame"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenged.ChallengeGame.plistData.getter : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;"
+                  moduleName = "Challenged"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ido/Documents/hackidc/Challenged/Challenged/Game%20Models/ChallengeGame.swift"
+                  timestampString = "546481073.066388"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "105">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Challenged.ChallengeGame.plistData.setter : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;"
+                  moduleName = "Challenged"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ido/Documents/hackidc/Challenged/Challenged/Game%20Models/ChallengeGame.swift"
+                  timestampString = "546481073.068637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "110">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

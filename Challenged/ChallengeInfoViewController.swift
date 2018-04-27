@@ -61,6 +61,13 @@ class ChallengeInfoViewController: UIViewController {
     lognText.lineBreakMode = .byWordWrapping
     lognText.numberOfLines = 9
     
+    //title
+    titleChallenge.textAlignment = NSTextAlignment.center
+    titleChallenge.layer.shadowColor = UIColor.lightGray.cgColor
+    titleChallenge.layer.shadowRadius = 3.0
+    titleChallenge.layer.shadowOpacity = 1.0
+    titleChallenge.layer.shadowOffset = CGSize(width: 2, height: 2)
+    titleChallenge.layer.masksToBounds = false
     titleChallenge.numberOfLines = 2
     prizeDescrip.numberOfLines = 2
   }

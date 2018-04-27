@@ -58,7 +58,7 @@ extension GameViewController: ARSCNViewDelegate {
   
   @objc func addRobotInterval() {
     
-    if (self.aliens.count < gameInstance.numberOfTargets &&
+    if (self.aliens.count < gameInstance.numOfTargets &&
         self.planeNodes.count > 0) {
       
       // choose random plane node

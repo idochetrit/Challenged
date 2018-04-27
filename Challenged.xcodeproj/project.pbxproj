@@ -127,6 +127,7 @@
 				503DF6482091B92500160F4D /* CollectionViewCell.xib */,
 				34A498582091B30A0070A2F9 /* LaunchScreen.storyboard */,
 				34A4985B2091B30A0070A2F9 /* Info.plist */,
+				344D92762092016E00553719 /* Challenges.plist */,
 				503DF6502092217E00160F4D /* fonts */,
 				344D926B2091B8CB00553719 /* Sounds */,
 				34A498632091B3430070A2F9 /* Extensions */,
@@ -152,7 +153,6 @@
 			children = (
 				344D92742091FFE900553719 /* ChallengeGame.swift */,
 				344D9278209218E600553719 /* ChallengeInfo.swift */,
-				344D92762092016E00553719 /* Challenges.plist */,
 			);
 			path = "Game Models";
 			sourceTree = "<group>";

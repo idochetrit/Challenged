@@ -130,7 +130,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ChallengeName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-XH-wfC">
                                         <rect key="frame" x="161" y="38" width="153" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -248,34 +248,18 @@
                                         <rect key="frame" x="218" y="157" width="86" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="9ph-sR-HeS">
-                                        <rect key="frame" x="130" y="173" width="54" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starempty" translatesAutoresizingMaskIntoConstraints="NO" id="iU6-Z7-pho">
-                                        <rect key="frame" x="175" y="375" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starempty" translatesAutoresizingMaskIntoConstraints="NO" id="Fi0-lG-vP3">
-                                        <rect key="frame" x="135" y="344" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowstar" translatesAutoresizingMaskIntoConstraints="NO" id="PRt-gE-fjS">
-                                        <rect key="frame" x="92" y="375" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8rA-YA-yjV">
                                         <rect key="frame" x="175" y="249" width="48" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congratzz!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-2w-IDP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CongratS!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-2w-IDP">
                                         <rect key="frame" x="0.0" y="21" width="314" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AutodestructBB-Bold" family="Autodestruct BB" pointSize="36"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU WIN!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owN-eu-oJz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU WIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owN-eu-oJz">
                                         <rect key="frame" x="0.0" y="110" width="314" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="28"/>
@@ -286,24 +270,6 @@
                                         <rect key="frame" x="38" y="257" width="146" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowstar" translatesAutoresizingMaskIntoConstraints="NO" id="eai-eR-Ple">
-                                        <rect key="frame" x="74" y="449" width="32" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gain 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN9-ap-50c">
-                                        <rect key="frame" x="11" y="444" width="78" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="for the big prize! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMa-aA-X14">
-                                        <rect key="frame" x="114" y="444" width="193" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AutodestructBB" family="Autodestruct BB" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -330,6 +296,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmE-8B-ezI">
+                                        <rect key="frame" x="104" y="157" width="106" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="70"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starempty" translatesAutoresizingMaskIntoConstraints="NO" id="iU6-Z7-pho">
+                                        <rect key="frame" x="175" y="414" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starempty" translatesAutoresizingMaskIntoConstraints="NO" id="Fi0-lG-vP3">
+                                        <rect key="frame" x="135" y="383" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowstar" translatesAutoresizingMaskIntoConstraints="NO" id="PRt-gE-fjS">
+                                        <rect key="frame" x="92" y="414" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -432,10 +417,9 @@
         <image name="explor" width="512" height="512"/>
         <image name="focus" width="150" height="150"/>
         <image name="playagain" width="512" height="512"/>
-        <image name="plus" width="512" height="512"/>
         <image name="robot" width="400" height="400"/>
         <image name="starempty" width="261" height="245"/>
-        <image name="yellowstar" width="252" height="248"/>
         <image name="target" width="288" height="288"/>
+        <image name="yellowstar" width="252" height="248"/>
     </resources>
 </document>
