@@ -16,7 +16,7 @@ extension GameViewController: ARSCNViewDelegate {
     guard let planeAnchor = anchor as? ARPlaneAnchor
       else { return }
     
-    let planeNode = Plane(planeAnchor, hidden: false)
+    let planeNode = Plane(planeAnchor)
     node.addChildNode(planeNode)
     planeNodes.append(planeNode)
   }
@@ -44,18 +44,12 @@ extension GameViewController: ARSCNViewDelegate {
     }
   }
   
-  
   func addRobotNode(planeNode: Plane, index: Int) {
     let robotNode = Robot(id: index)
     
     robotNode.setupPosition(node: planeNode)
     
-    // hook direction to camera
-    let billboardConstraint = SCNBillboardConstraint()
-    billboardConstraint.freeAxes = SCNBillboardAxis.Z
-    robotNode.constraints = [billboardConstraint]
-    
-    print("Alien pos. ", robotNode.position)
+    print("Robot pos. ", robotNode.position)
     print("Plane Node pos. ", planeNode.position)
     
     sceneView.scene.rootNode.addChildNode(robotNode)

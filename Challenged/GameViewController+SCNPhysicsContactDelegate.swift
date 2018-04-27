@@ -36,7 +36,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
     
     // play sounds effect
     DispatchQueue.main.async {
-//      self.playSoundEffect(ofType: .explosion)
+      self.playSoundEffect(ofType: .explosion)
     }
     
     // remove the bullet

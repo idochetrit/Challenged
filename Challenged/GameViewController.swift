@@ -59,8 +59,8 @@ class GameViewController: UIViewController {
     sceneView.delegate = self
     
     // Show statistics such as fps and timing information, debuge options
-    sceneView.showsStatistics = true
-    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
+//    sceneView.showsStatistics = true
+//    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
     
     // Set the scene to the view
     sceneView.scene = SCNScene()
@@ -88,11 +88,11 @@ class GameViewController: UIViewController {
   }
   
   func configureLighting() {
-    sceneView.autoenablesDefaultLighting = true
+    sceneView.autoenablesDefaultLighting = false
     sceneView.automaticallyUpdatesLighting = true
     
-    let lightNode = Sun()
-    self.sceneView.scene.rootNode.addChildNode(lightNode)
+//    let lightNode = Sun()
+//    self.sceneView.scene.rootNode.addChildNode(lightNode)
   }
   
   // MARK: - Actions
@@ -105,7 +105,7 @@ class GameViewController: UIViewController {
     
     //play sound
     DispatchQueue.main.async {
-//      self.playSoundEffect(ofType: .shoot)
+      self.playSoundEffect(ofType: .shoot)
     }
     
     let bulletVector = SCNVector3(dir.x * 1.8, dir.y * 1.8, dir.z * 1.8)

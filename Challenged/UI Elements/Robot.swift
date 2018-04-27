@@ -38,7 +38,7 @@ class Robot: SCNNode {
     
     self.robot.castsShadow = true
     
-    self.robot.scale = SCNVector3(0.06, 0.06, 0.06)
+    self.robot.scale = SCNVector3(0.05, 0.05, 0.05)
     
   }
   
@@ -50,15 +50,15 @@ class Robot: SCNNode {
     
     let toggled = index % 2 == 0
     let insertionYOffset : Float = 1.1
-    let intervalXOffset =  min(Float(index) * (0.5), 2)
-    let intervalZOffset =  min(Float(index) * (0.4), 3)
+    let intervalXOffset =  min(Float(index) * (0.8), 3)
+    let intervalZOffset =  min(Float(index) * (0.7), 3)
     print("Z offset: ", intervalZOffset, " + ")
     print("X offset: ", intervalXOffset, " -/+: ", toggled)
     
     let position = SCNVector3(
       transform.x + (toggled ? -intervalXOffset : intervalXOffset),
       transform.y - insertionYOffset,
-      transform.z - 0.42 - intervalZOffset
+      transform.z - 2.42 - intervalZOffset
     )
     
     robot.position = position

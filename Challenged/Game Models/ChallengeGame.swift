@@ -76,9 +76,11 @@ class ChallengeGame: NSObject {
   }
   
   func pushFinishScreen(source: UIViewController) {
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    let viewController = storyboard.instantiateViewController(withIdentifier: "successView") as! SuccessViewController
-    source.present(viewController, animated: false, completion: nil)
+    DispatchQueue.main.async {
+      let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+      let viewController = storyboard.instantiateViewController(withIdentifier: "successView") as! SuccessViewController
+      source.present(viewController, animated: false, completion: nil)
+    }
   }
   
 }
