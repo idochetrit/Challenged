@@ -50,15 +50,15 @@ class Robot: SCNNode {
     
     let toggled = index % 2 == 0
     let insertionYOffset : Float = 1.1
-    let intervalXOffset =  min(Float(index) * (0.8), 3)
-    let intervalZOffset =  min(Float(index) * (0.7), 3)
+    let intervalXOffset =  min(Float(index) * (0.8), 5)
+    let intervalZOffset =  min(Float(index) * (0.7), 3.4)
     print("Z offset: ", intervalZOffset, " + ")
     print("X offset: ", intervalXOffset, " -/+: ", toggled)
     
     let position = SCNVector3(
       transform.x + (toggled ? -intervalXOffset : intervalXOffset),
       transform.y - insertionYOffset,
-      transform.z - 2.42 - intervalZOffset
+      transform.z - 1.42 - intervalZOffset
     )
     
     robot.position = position

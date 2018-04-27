@@ -69,7 +69,7 @@ class GameViewController: UIViewController {
     configureLighting()
     // add robots timer
     if (robotsInterval == nil) {
-      robotsInterval = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.addRobotInterval), userInfo: nil, repeats: true)
+      robotsInterval = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.addRobotInterval), userInfo: nil, repeats: true)
     }
     
     //start counter
