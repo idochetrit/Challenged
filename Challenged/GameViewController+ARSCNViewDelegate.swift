@@ -40,7 +40,10 @@ extension GameViewController: ARSCNViewDelegate {
     
     updateHUDLabels()
     if gameInstance.isEnded() {
-      gameInstance.pushFinishScreen(source: self)
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+        self.gameInstance.pushFinishScreen(source: self)
+      })
+      
     }
   }
   

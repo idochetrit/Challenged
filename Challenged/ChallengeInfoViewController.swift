@@ -27,14 +27,14 @@ class ChallengeInfoViewController: UIViewController {
     super.viewDidLoad()
     
     self.view.backgroundColor = UIColor(patternImage: UIImage(named: "galaxy_bg.png")!)
-    secondView.backgroundColor = UIColor(white: 1, alpha: 1)
-    secondView.layer.opacity = 1
     
     // border radius
     secondView.layer.cornerRadius = 15.0
+    
     // border
     secondView.layer.borderColor = UIColor.lightGray.cgColor
     secondView.layer.borderWidth = 3
+    
     // drop shadow
     secondView.layer.shadowColor = UIColor.black.cgColor
     secondView.layer.shadowRadius = 3.0
@@ -57,19 +57,16 @@ class ChallengeInfoViewController: UIViewController {
     playBut.layer.shadowOffset = CGSize(width: 2, height: 2)
     
     //Long Text
-    lognText.textAlignment = .left
-    lognText.lineBreakMode = .byWordWrapping
-    lognText.numberOfLines = 9
+//    lognText.textAlignment = .left
+//    lognText.lineBreakMode = .byWordWrapping
+//    lognText.numberOfLines = 9
     
     //title
-    titleChallenge.textAlignment = NSTextAlignment.center
     titleChallenge.layer.shadowColor = UIColor.lightGray.cgColor
     titleChallenge.layer.shadowRadius = 3.0
     titleChallenge.layer.shadowOpacity = 1.0
     titleChallenge.layer.shadowOffset = CGSize(width: 2, height: 2)
     titleChallenge.layer.masksToBounds = false
-    titleChallenge.numberOfLines = 2
-    prizeDescrip.numberOfLines = 2
   }
 
   override func didReceiveMemoryWarning() {
