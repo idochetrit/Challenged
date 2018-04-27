@@ -16,14 +16,9 @@ class SuccessViewController: UIViewController {
 
   @IBOutlet weak var prizeImage: UIImageView!
   @IBOutlet weak var logoImage: UIImageView!
-
-  @IBAction func playAgain(_ sender: Any) {
-    //IDO'S CODE - Play again
-  }
-  @IBAction func moreChallenges(_ sender: Any) {
-    
-  }
   
+  var challengeInfo: ChallengeInfo!
+
   override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -53,20 +48,17 @@ class SuccessViewController: UIViewController {
     
   }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
+  
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "playAgain" {
+      let viewController = segue.destination as! GameViewController
+      viewController.gameInstance = ChallengeGame.init(self.challengeInfo)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
 }

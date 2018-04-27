@@ -72,13 +72,14 @@ class ChallengeGame: NSObject {
   
   func isEnded() -> Bool {
     let timeDiff: TimeInterval =  Date.init().timeIntervalSince(startedAt)
-    return targetsHits >= numberOfTargets || timeDiff >= timeLimit
+    return targetsHits >= numOfTargets || timeDiff >= timeLimit
   }
   
   func pushFinishScreen(source: UIViewController) {
     DispatchQueue.main.async {
       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
       let viewController = storyboard.instantiateViewController(withIdentifier: "successView") as! SuccessViewController
+      viewController.challengeInfo = self.info
       source.present(viewController, animated: false, completion: nil)
     }
   }

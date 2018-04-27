@@ -69,7 +69,7 @@ class GameViewController: UIViewController {
     configureLighting()
     // add robots timer
     if (robotsInterval == nil) {
-      robotsInterval = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.addRobotInterval), userInfo: nil, repeats: true)
+      robotsInterval = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.addRobotInterval), userInfo: nil, repeats: true)
     }
     
     //start counter
@@ -135,7 +135,7 @@ class GameViewController: UIViewController {
       
       // update hitcount
       self.hitCountLabel.text =
-        "\(self.gameInstance.targetsHits) \\ \(self.gameInstance.numberOfTargets)"
+      "\(self.gameInstance.targetsHits) \\ \(self.gameInstance.numOfTargets)"
     }
     
   }
